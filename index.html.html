@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Love Journal - Matrimonio di Elena & Gioele</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f8f8f8;
+            color: black;
+            text-align: center;
+            padding: 20px;
+        }
+        .newspaper {
+            background: white;
+            width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: left;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid black;
+        }
+        h1, h2 {
+            font-family: 'Georgia', serif;
+            text-transform: uppercase;
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #d4a5a5;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        .article {
+            margin: 20px 0;
+        }
+        .highlight {
+            background-color: #d4a5a5;
+            color: white;
+            padding: 5px;
+            display: inline-block;
+        }
+        .map-links {
+            margin-top: 20px;
+        }
+        .map-links a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            margin: 10px;
+            display: block;
+        }
+        .form-container {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="newspaper">
+        <h1>The Love Journal</h1>
+        <h2 class="highlight">Elena & Gioele si sposano!</h2>
+        <p>Sabato 1 Luglio 2025 - Ore 10:30</p>
+        <div class="article">
+            <h2>Il giorno tanto atteso</h2>
+            <p>Manca poco all'apertura del capitolo più bello della nostra vita! Siamo entusiasti di condividere con voi questo momento speciale.</p>
+        </div>
+        <div class="map-links">
+            <h2>Luoghi dell'evento</h2>
+            <a href="https://maps.google.com/?q=indirizzo_cerimonia" target="_blank">📍 Cerimonia</a>
+            <a href="https://maps.google.com/?q=indirizzo_ricevimento" target="_blank">📍 Ricevimento</a>
+        </div>
+        <div class="form-container">
+            <h2>Conferma la tua presenza</h2>
+            <form action="https://formspree.io/f/mjvqqpdq" method="POST">
+                <label for="cognome">Cognome della famiglia:</label>
+                <input type="text" id="cognome" name="cognome" required><br><br>
+                <label for="persone">Numero di partecipanti:</label>
+                <input type="number" id="persone" name="persone" required><br><br>
+                <label for="bambini">Ci sono bambini sotto gli 8 anni?</label>
+                <select id="bambini" name="bambini" onchange="toggleBambini()">
+                    <option value="no">No</option>
+                    <option value="si">Sì</option>
+                </select><br><br>
+                <div id="numeroBambini" style="display:none;">
+                    <label for="quantiBambini">Quanti?</label>
+                    <input type="number" id="quantiBambini" name="quantiBambini"><br><br>
+                </div>
+                <label for="allergie">Allergie o intolleranze alimentari:</label>
+                <input type="text" id="allergie" name="allergie"><br><br>
+                <button type="submit">Invia</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function toggleBambini() {
+            var bambini = document.getElementById("bambini").value;
+            var numeroBambini = document.getElementById("numeroBambini");
+            if (bambini === "si") {
+                numeroBambini.style.display = "block";
+            } else {
+                numeroBambini.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
